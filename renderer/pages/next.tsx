@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const Next = () => {
+export default function Next() {
     return (
         <>
             <Head>
@@ -18,6 +18,4 @@ const Next = () => {
             </div>
         </>
     );
-};
-
-export default Next;
+}
