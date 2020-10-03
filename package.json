@@ -15,8 +15,10 @@
     "lint:fix": "eslint './{main,renderer}/**/*.ts?(x)' --fix"
   },
   "dependencies": {
+    "@tensorflow/tfjs-node": "^2.4.0",
     "electron-serve": "^1.0.0",
     "electron-store": "^6.0.0",
+    "meyda": "^5.0.7",
     "nedb-promises": "^4.0.4"
   },
   "devDependencies": {

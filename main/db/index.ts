@@ -1,1 +1,5 @@
-export { default as sounds } from './sounds';
+import sounds from './sounds';
+
+export default {
+    sounds,
+};

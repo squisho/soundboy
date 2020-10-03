@@ -8,11 +8,13 @@ class Sounds {
         this.db = dbFactory('sounds.db');
     }
 
-    create = (data: Record<string, any>) => {
+    insert = (data: Record<string, any>) => {
+        console.log('sounds db insert: ', data);
         return this.db.insert(data);
     }
 
-    getAll = () => {
+    fetch = (query: Record<string, any>) => {
+        console.log('sounds db fetch: ', query);
         return this.db.find({});
     }
 }
