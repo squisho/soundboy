@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled from '@emotion/styled'
-import { ThemeProvider } from 'emotion-theming'
+import styled from '@emotion/styled';
+import { ThemeProvider } from 'emotion-theming';
 import type { AppProps } from 'next/app';
 
 import IpcService, { IpcContext } from '../services/IpcService';
@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     // create the global ipcService object on mount, save in state, and pass to context
     useEffect(() => {
         if (!ipcService) setIpcService(new IpcService());
-    }, []);
+    }, [ipcService]);
 
     return (
         <ThemeProvider theme={theme}>

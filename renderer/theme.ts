@@ -1,4 +1,4 @@
-import theme from '@rebass/preset'
+import theme from '@rebass/preset';
 
 const mTheme = {
     ...theme,
@@ -36,8 +36,8 @@ const mTheme = {
             bg: 'primary',
         },
     },
-}
+};
 
-export type Theme = ReturnType<typeof mTheme>
+export type Theme = ReturnType<typeof mTheme>;
 
-export default mTheme
+export default mTheme;

@@ -1,9 +1,9 @@
-import { useTheme } from 'emotion-theming'
+import { useTheme } from 'emotion-theming';
 
-import { Theme } from '../theme'
+import { Theme } from '../theme';
 
 function useMyTheme(): Theme {
-    return useTheme<Theme>()
+    return useTheme<Theme>();
 }
 
-export default useMyTheme
+export default useMyTheme;

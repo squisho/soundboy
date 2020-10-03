@@ -11,7 +11,8 @@ export default class IpcService {
         this.ipcRenderer = window.require('electron').ipcRenderer;
     }
 
-    public send<T>(channel: string, request: IPC.Request = {}): Promise<T> {
+    send<T>(channel: string, request: IPC.Request = {}): Promise<T> {
+        console.log('sending to', channel);
         // If the ipcRenderer is not available try to initialize it
         if (!this.ipcRenderer) {
             this.initializeIpcRenderer();
@@ -21,14 +22,23 @@ export default class IpcService {
             request.responseChannel = `${channel}_response_${new Date().getTime()}`;
         }
 
-        const ipcRenderer = this.ipcRenderer;
+        const { ipcRenderer } = this;
         ipcRenderer.send(channel, request);
 
         // This method returns a promise which will be resolved when the response has arrived.
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             ipcRenderer.once(request.responseChannel, (_event, response) => resolve(response));
         });
     }
+
+    analyze(soundfiles: string[]) {
+        // TODO: use this.getstream to receive all streamed results
+        return this.send<Record<string, any>>('analyze', { params: soundfiles });
+    };
+
+    getSounds(query: Record<string, any>) {
+        return this.send<Record<string, any>>('sounds', { params: [JSON.stringify(query)] });
+    };
 }
 
 export const IpcContext = React.createContext<IpcService | undefined>(undefined);

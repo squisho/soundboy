@@ -1,22 +1,18 @@
 import { IpcMainEvent } from 'electron';
 
 import { analyzeSounds } from '../analyzer';
-import ChannelInterface from './ChannelInterface';
+import Channel from './Channel';
 
-export default class AnalyzerChannel implements ChannelInterface {
-    getName() {
-        return 'analyzer';
-    }
-
+export default class AnalyzerChannel extends Channel {
     /**
      * Analyzes a list of sound files and stores the results in the database.
      * Progress is streamed to the client with each db entry.
-     * @param event 
+     * @param event
      * @param request { responseChannel, params: a list of sound file names }
      */
-    handler(event: IpcMainEvent, request: IPC.Request) {
-        const responseChannel = request.responseChannel || `${this.getName()}_response`;
-        event.sender.send(responseChannel, 'pong');
+    async handler(event: IpcMainEvent, request: IPC.Request) {
+        console.log('AnalyzerChannel request: ', request.params);
+        const responseChannel = this.getResponseChannel(request);
 
         const filenames = request.params;
         if (!filenames || filenames.length === 0) {
