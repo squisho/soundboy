@@ -4,6 +4,7 @@ import { IpcRenderer } from 'electron';
 export default class IpcService {
     private ipcRenderer?: IpcRenderer;
 
+    // ipcRenderer must be required after the app is fully up and running
     private initializeIpcRenderer() {
         if (!window || !window.process || !window.require) {
             throw new Error(`Unable to require renderer process`);
