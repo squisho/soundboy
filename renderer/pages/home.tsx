@@ -9,25 +9,18 @@ export default function Home() {
     const ipcService = useIpcService();
 
     const analyze = async () => {
-        console.log('analyze')
+        if (!ipcService) return;
+        console.log('analyze');
         const res = await ipcService.analyze(['./soundfile.wav']);
         console.log(res);
     };
 
     const getSounds = async () => {
-        console.log('getSounds')
+        if (!ipcService) return;
+        console.log('getSounds');
         const sounds = await ipcService.getSounds({ foo: 'bar' });
         console.log(sounds);
     };
-
-    const onClickFactory = (handler: () => Promise<void>) => async (event: React.MouseEvent) => {
-        if (!ipcService) {
-            // TODO: error message
-            return;
-        }
-
-        await handler();
-    }
 
     return (
         <>
@@ -44,10 +37,10 @@ export default function Home() {
                         <a>Go to next page</a>
                     </Link>
                 </p>
-                <Button variant='primary' mr={2} onClick={onClickFactory(analyze)}>
+                <Button variant='primary' mr={2} onClick={analyze}>
                     Analyze
                 </Button>
-                <Button variant='primary' mr={2} onClick={onClickFactory(getSounds)}>
+                <Button variant='primary' mr={2} onClick={getSounds}>
                     Get Sounds
                 </Button>
                 <img src='/images/logo.png' />

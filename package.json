@@ -9,10 +9,10 @@
     "dev": "nextron",
     "build": "nextron build",
     "postinstall": "electron-builder install-app-deps",
-    "prettier": "prettier --list-different --write './{main,renderer}/**/*.ts?(x)'",
-    "prettier:check": "prettier --check './{main,renderer}/**/*.ts?(x)'",
-    "lint": "tsc --noEmit -P . && eslint './{main,renderer}/**/*.ts?(x)'",
-    "lint:fix": "eslint './{main,renderer}/**/*.ts?(x)' --fix"
+    "prettier": "prettier --list-different --write './**/*.{j,t}s?(x)'",
+    "prettier:check": "prettier --check './**/*.{j,t}s?(x)'",
+    "lint": "tsc --noEmit -P . && eslint './**/*.ts?(x)'",
+    "lint:fix": "eslint './**/*.ts?(x)' --fix"
   },
   "dependencies": {
     "@tensorflow/tfjs-node": "^2.4.0",

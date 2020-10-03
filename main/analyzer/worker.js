@@ -10,7 +10,7 @@
 const { parentPort, workerData } = require('worker_threads');
 
 const parent = parentPort;
-const filenames = workerData.filenames || []
+const filenames = workerData.filenames || [];
 
 console.log('Analyzer Worker - filenames: ', filenames);
 

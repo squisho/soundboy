@@ -34,11 +34,11 @@ export default class IpcService {
     analyze(soundfiles: string[]) {
         // TODO: use this.getstream to receive all streamed results
         return this.send<Record<string, any>>('analyze', { params: soundfiles });
-    };
+    }
 
     getSounds(query: Record<string, any>) {
         return this.send<Record<string, any>>('sounds', { params: [JSON.stringify(query)] });
-    };
+    }
 }
 
 export const IpcContext = React.createContext<IpcService | undefined>(undefined);

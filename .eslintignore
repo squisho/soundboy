@@ -1,0 +1,4 @@
+@types
+app
+node_modules
+.next
