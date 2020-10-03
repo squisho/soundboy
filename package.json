@@ -1,9 +1,9 @@
 {
   "private": true,
   "name": "soundboy",
-  "description": "My application description",
+  "description": "Sample library classification and exploration tool.",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Jules Youngberg <julesdayoungberg@gmail.com>",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "electron-serve": "^1.0.0",
-    "electron-store": "^6.0.0"
+    "electron-store": "^6.0.0",
+    "nedb-promises": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

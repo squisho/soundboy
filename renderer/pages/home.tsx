@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Heading } from 'rebass';
 
+import useIpcService from '../hooks/useIpcService';
+
 export default function Home() {
+    const ipcService = useIpcService();
+
+    useEffect(() => {
+        async function ping() {
+            if (!ipcService) return;
+
+            console.log('pinging');
+            const res = await ipcService.send<string>('analyzer');
+            console.log(res);
+        }
+
+        ping();
+    }, [ipcService]);
+
     return (
         <>
             <Head>
